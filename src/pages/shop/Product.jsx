@@ -6,23 +6,25 @@ import { ShopContext } from '../../context/shop-context';
  * Product component
  * @param {object} props - component props
  * @param {number} props.id - product id
- * @param {string} props.productName - product name
+ * @param {string} props.title - product title
  * @param {number} props.price - product price
- * @param {string} props.productImage - product image url
+ * @param {string} props.thumbnail - product thumbnail
  * @returns {JSX.Element} - product component
  */
 const Product = (props) => {
-  const { id, productName, price, productImage } = props.data;
+  const { id, title, price, thumbnail } = props.data;
+  // get ShopContext from React's useContext hook
   const { addToCart, cartItems } = useContext(ShopContext);
 
+  // get the amount of items in the cart with the given product id
   const cartItemAmount = cartItems[id];
 
   return (
     <div className="product">
-      <img src={productImage} alt="" />
+      <img src={thumbnail} alt="product's image" />
       <div className="description">
         <p>
-          <b>{productName}</b>
+          <b>{title}</b>
         </p>
         <p>${price}</p>
       </div>

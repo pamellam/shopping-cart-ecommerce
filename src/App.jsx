@@ -9,7 +9,6 @@ import Navbar from './components/Navbar/Navbar';
 import Cart from './pages/cart/Cart';
 import Shop from './pages/shop/Shop';
 import { ShopContextProvider } from './context/shop-context.jsx';
-
 /**
  * Main application component.
  * @returns {JSX.Element} Main application element.

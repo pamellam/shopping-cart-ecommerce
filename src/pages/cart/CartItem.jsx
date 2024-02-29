@@ -1,34 +1,28 @@
 /* eslint-disable react/prop-types */
-/**
- * @file CartItem component
- */
-
 import { useContext } from 'react';
 import { ShopContext } from '../../context/shop-context';
-
 import '../shop/Shop.css';
 import './Cart.css';
 
 /**
- * CartItem component
- * @param {object} props component props
- * @param {string} props.data.id product id
- * @param {string} props.data.productName product name
- * @param {number} props.data.price product price
- * @param {string} props.data.productImage product image
- * @returns {JSX.Element} CartItem component
+ * @param {object} props
+ * @param {string} props.id
+ * @param {string} props.title
+ * @param {number} props.price
+ * @param {string} props.thumbnail
+ * @returns {JSX.Element}
  */
 const CartItem = (props) => {
-  const { id, productName, price, productImage } = props.data;
+  const { id, title, price, thumbnail } = props.data;
   const { cartItems, removeFromCart, addToCart, updateCartItemsCount } =
     useContext(ShopContext);
 
   return (
     <div className="cartItem">
-      <img src={productImage} alt="" />
+      <img src={thumbnail} alt="" />
       <div className="description">
         <p>
-          <b>{productName}</b>
+          <b>{title}</b>
         </p>
         <p>${price}</p>
       </div>
